@@ -1,0 +1,80 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.android.trashub.ui.home.HomeFragment"
+        android:label="@string/title_beranda"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_jenisFragment"
+            app:destination="@+id/jenisFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_reduceFragment"
+            app:destination="@+id/reduceFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_newsFragment"
+            app:destination="@+id/newsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.android.trashub.ui.dashboard.DashboardFragment"
+        android:label="@string/title_kamera"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.android.trashub.ui.notifications.NotificationsFragment"
+        android:label="@string/title_akun"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/jenisFragment"
+        android:name="com.android.trashub.ui.home.JenisFragment"
+        android:label="@string/jenis_jenis_sampah"
+        tools:layout="@layout/fragment_jenis" />
+
+    <fragment
+        android:id="@+id/reduceFragment"
+        android:name="com.android.trashub.ui.home.ReduceFragment"
+        android:label="@string/penjelasan_3r"
+        tools:layout="@layout/fragment_reduce">
+        <action
+            android:id="@+id/action_reduceFragment_to_detailReduceFragment"
+            app:destination="@+id/detailReduceFragment"/>
+        <action
+            android:id="@+id/action_reduceFragment_to_detailReuseFragment"
+            app:destination="@+id/detailReuseFragment"/>
+        <action
+            android:id="@+id/action_reduceFragment_to_detailRecycleFragment"
+            app:destination="@+id/detailRecycleFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailReduceFragment"
+        android:name="com.android.trashub.ui.home.DetailReduceFragment"
+        android:label="@string/penjelasan_reduce"
+        tools:layout="@layout/fragment_detail_reduce" />
+
+    <fragment
+        android:id="@+id/detailReuseFragment"
+        android:name="com.android.trashub.ui.home.DetailReuseFragment"
+        android:label="@string/penjelasan_reuse"
+        tools:layout="@layout/fragment_detail_reuse" />
+
+    <fragment
+        android:id="@+id/detailRecycleFragment"
+        android:name="com.android.trashub.ui.home.DetailRecycleFragment"
+        android:label="@string/penjelasan_recycle"
+        tools:layout="@layout/fragment_detail_recycle" />
+
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.android.trashub.ui.home.NewsFragment"
+        android:label="@string/informasi_sampah"
+        tools:layout="@layout/fragment_news" />
+</navigation>
