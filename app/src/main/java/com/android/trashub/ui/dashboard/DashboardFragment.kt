@@ -34,7 +34,8 @@ class DashboardFragment : Fragment() {
     private lateinit var currentPhotoPath: String
 
     // Daftar label kelas sesuai dengan keluaran model
-    private val labels = arrayOf("food_waste", "glass", "cardboard", "clothes", "metal", "paper", "plastic", "shoes", "lead_waste", "wood_waste", "elektronik", "trash")
+    // Harus urut sama di tflite
+    private val labels = arrayOf("cardboard", "clothes", "electronics", "food waste", "glass", "leaf waste", "metal", "paper", "plastic", "shoes", "trash", "wood waste")
 
     override fun onCreateView(
         inflater: LayoutInflater,
