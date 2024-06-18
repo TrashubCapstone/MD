@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "344882872448",
+    "project_id": "project-trashub",
+    "storage_bucket": "project-trashub.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:344882872448:android:f0dca6c37b92f4033be665",
+        "android_client_info": {
+          "package_name": "com.android.trashub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSni63aoX8yPP-oAlrleazAR0xWV2-v4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -26,4 +26,6 @@
     <color name="colorPrimaryVariant">#262168</color>
     <color name="powder_blue">#B0E0E6</color>
     <color name="red">#FF0000</color>
+    <color name="btngreen">#90EE02</color>
+    <color name="backgroundgreen">#DEFABB</color>
 </resources>

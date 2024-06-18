@@ -32,50 +32,48 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnGaleri"
+        style="@style/TextContent.TitleMedium"
         android:layout_width="150dp"
         android:layout_height="64dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="20dp"
         android:text="@string/galeri"
-        style="@style/TextContent.TitleMedium"
         android:textColor="@color/white"
+        app:backgroundTint="@color/btngreen"
         app:cornerRadius="8dp"
-        app:backgroundTint="@color/medium_blue"
         app:layout_constraintBottom_toTopOf="@+id/btnSimpan"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"/>
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnKamera"
+        style="@style/TextContent.TitleMedium"
         android:layout_width="150dp"
         android:layout_height="64dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="12dp"
         android:layout_marginBottom="20dp"
         android:text="@string/kamera"
-        style="@style/TextContent.TitleMedium"
         android:textColor="@color/white"
+        app:backgroundTint="@color/btngreen"
         app:cornerRadius="8dp"
-        app:backgroundTint="@color/medium_blue"
         app:layout_constraintBottom_toTopOf="@+id/btnSimpan"
-        app:layout_constraintStart_toEndOf="@+id/guideline_vertical"/>
+        app:layout_constraintStart_toEndOf="@+id/guideline_vertical" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSimpan"
-        android:layout_width="370dp"
+        style="@style/TextContent.TitleMedium"
+        android:layout_width="323dp"
         android:layout_height="64dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="100dp"
         android:text="@string/simpan"
-        style="@style/TextContent.TitleMedium"
         android:textColor="@color/white"
         android:textSize="20sp"
+        app:backgroundTint="@color/btngreen"
         app:cornerRadius="10dp"
-        app:backgroundTint="@color/medium_blue"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_vertical"
@@ -85,4 +83,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintGuide_percent="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Result:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSimpan"
+        app:layout_constraintVertical_bias="0.135" />
 </androidx.constraintlayout.widget.ConstraintLayout>

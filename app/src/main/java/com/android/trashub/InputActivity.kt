@@ -36,7 +36,7 @@ class InputActivity : AppCompatActivity() {
 
         btnLanjut.setOnClickListener {
             val name = editTextName?.text.toString()
-            val intent = Intent(this, MainActivity::class.java).apply {
+            val intent = Intent(this, HomepageActivity::class.java).apply {
                 putExtra("user_name", name)
             }
             startActivity(intent)

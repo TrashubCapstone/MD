@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-parcelize")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -37,11 +38,11 @@ android {
     buildFeatures {
         viewBinding = true
         buildConfig = true
+        mlModelBinding = true
     }
 }
 
 dependencies {
-
     implementation("androidx.core:core-ktx:1.7.0")
     implementation("androidx.appcompat:appcompat:1.4.1")
     implementation("com.google.android.material:material:1.5.0")
@@ -64,12 +65,23 @@ dependencies {
     implementation("androidx.camera:camera-camera2:1.1.0-beta03")
     implementation("androidx.camera:camera-lifecycle:1.1.0-beta03")
     implementation("androidx.camera:camera-view:1.1.0-beta03")
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    implementation("com.google.firebase:firebase-database-ktx:21.0.0")
+    implementation("com.google.firebase:firebase-analytics")
 
     implementation("com.airbnb.android:lottie:6.4.1")
     implementation("com.google.android.material:material:1.12.0")
+    implementation(libs.tensorflow.lite.support)
+    implementation(libs.tensorflow.lite.metadata)
+    implementation(libs.tensorflow.lite.gpu)
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+}
 
+afterEvaluate {
+    tasks.named("mergeDebugResources") {
+        dependsOn(tasks.named("processDebugGoogleServices"))
+    }
 }

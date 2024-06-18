@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.android.trashub.R
 import com.android.trashub.databinding.FragmentJenisBinding
 
 class JenisFragment : Fragment() {
@@ -20,15 +22,15 @@ class JenisFragment : Fragment() {
         val root: View = binding.root
 
         binding.btnOrganik.setOnClickListener {
-            // Tambahkan aksi yang diinginkan di sini
+            findNavController().navigate(R.id.action_jenisFragment_to_organikFragment)
         }
 
         binding.btnAnorganik.setOnClickListener {
-            // Tambahkan aksi yang diinginkan di sini
+            findNavController().navigate(R.id.action_jenisFragment_to_anorganikFragment)
         }
 
         binding.btnB3.setOnClickListener {
-            // Tambahkan aksi yang diinginkan di sini
+            findNavController().navigate(R.id.action_jenisFragment_to_b3Fragment)
         }
 
         return root

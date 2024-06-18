@@ -36,4 +36,7 @@
     <string name="judul">Judul</string>
     <string name="detail">Detail</string>
     <string name="halo">Halo, </string>
+    <string name="jenis_jenis_sampah_organik">Jenis-Jenis Sampah Organik</string>
+    <string name="jenis_jenis_sampah_anorganik">Jenis-Jenis Sampah Anorganik</string>
+    <string name="jenis_jenis_sampah_b3">Jenis-Jenis Sampah B3</string>
 </resources>

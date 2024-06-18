@@ -39,17 +39,15 @@ class NotificationsFragment : Fragment(), ProfileAdapter.ProfileClickListener {
         binding.recyclerView.layoutManager = layoutManager
 
         val profileList = listOf(
-            Profile(1, "Profile 1", R.mipmap.ic_1_round),
-            Profile(2, "Profile 2", R.mipmap.ic_2_round),
-            Profile(3, "Profile 3", R.mipmap.ic_3_round),
-            Profile(4, "Profile 4", R.mipmap.ic_4_round),
-            Profile(5, "Profile 5", R.mipmap.ic_5_round),
-            Profile(6, "Profile 6", R.mipmap.ic_6_round),
-            Profile(7, "Profile 7", R.mipmap.ic_7_round),
-            Profile(8, "Profile 8", R.mipmap.ic_8_round),
-            Profile(9, "Profile 9", R.mipmap.ic_9_round),
-            Profile(10, "Profile 10", R.mipmap.ic_10_round),
-            Profile(11, "Profile 11", R.mipmap.ic_11_round)
+            Profile(1, "Profile 1", R.mipmap.ic_group_round),
+            Profile(2, "Profile 2", R.mipmap.ic_group2_round),
+            Profile(3, "Profile 3", R.mipmap.ic_group3_round),
+            Profile(4, "Profile 4", R.mipmap.ic_group4_round),
+            Profile(5, "Profile 5", R.mipmap.ic_group5_round),
+            Profile(6, "Profile 6", R.mipmap.ic_group6_round),
+            Profile(7, "Profile 7", R.mipmap.ic_group7_round),
+            Profile(8, "Profile 8", R.mipmap.ic_group8_round),
+            Profile(9, "Profile 9", R.mipmap.ic_group9_round)
         )
         adapter.submitList(profileList)
     }

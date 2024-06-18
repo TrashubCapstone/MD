@@ -19,7 +19,7 @@
         style="@style/TextContent.TitleMedium"
         android:textSize="20sp"
         app:cornerRadius="10dp"
-        app:backgroundTint="?attr/colorControlHighlight"
+        app:backgroundTint="@color/btngreen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,7 +37,7 @@
         style="@style/TextContent.TitleMedium"
         android:textSize="20sp"
         app:cornerRadius="10dp"
-        app:backgroundTint="?attr/colorControlHighlight"
+        app:backgroundTint="@color/btngreen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnJenis" />
@@ -55,7 +55,7 @@
         style="@style/TextContent.TitleMedium"
         android:textSize="20sp"
         app:cornerRadius="10dp"
-        app:backgroundTint="?attr/colorControlHighlight"
+        app:backgroundTint="@color/btngreen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn3R" />
