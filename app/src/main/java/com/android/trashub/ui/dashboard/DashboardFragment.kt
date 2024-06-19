@@ -1,7 +1,9 @@
 package com.android.trashub.ui.dashboard
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
@@ -10,9 +12,13 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.android.trashub.R
 import com.android.trashub.databinding.FragmentDashboardBinding
 import com.android.trashub.ml.Model7
 import org.tensorflow.lite.DataType
@@ -32,10 +38,19 @@ class DashboardFragment : Fragment() {
     private val REQUEST_IMAGE_CAPTURE = 1
     private val REQUEST_IMAGE_PICK = 2
     private lateinit var currentPhotoPath: String
+    private var selectedBitmap: Bitmap? = null
 
     // Daftar label kelas sesuai dengan keluaran model
     // Harus urut sama di tflite
     private val labels = arrayOf("cardboard", "clothes", "electronics", "food waste", "glass", "leaf waste", "metal", "paper", "plastic", "shoes", "trash", "wood waste")
+
+    private val requestCameraPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+        if (isGranted) {
+            dispatchTakePictureIntent()
+        } else {
+            // Permission denied. Handle appropriately.
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,7 +68,7 @@ class DashboardFragment : Fragment() {
         }
 
         binding.btnKamera.setOnClickListener {
-            dispatchTakePictureIntent()
+            checkCameraPermissionAndOpenCamera()
         }
 
         binding.btnSimpan.setOnClickListener {
@@ -62,6 +77,7 @@ class DashboardFragment : Fragment() {
             bitmap?.let {
                 val resultText = runModelOnImage(it)
                 binding.result.text = resultText
+                navigateToResultFragment(it, resultText)
             }
         }
 
@@ -77,6 +93,24 @@ class DashboardFragment : Fragment() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, REQUEST_IMAGE_PICK)
+    }
+
+    private fun checkCameraPermissionAndOpenCamera() {
+        when {
+            ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED -> {
+                // You can use the API that requires the permission.
+                dispatchTakePictureIntent()
+            }
+            shouldShowRequestPermissionRationale(Manifest.permission.CAMERA) -> {
+                // In an educational UI, explain to the user why your app requires this permission for a specific feature to behave as expected.
+                // Request the permission again if the user agrees.
+                requestCameraPermissionLauncher.launch(Manifest.permission.CAMERA)
+            }
+            else -> {
+                // You can directly ask for the permission.
+                requestCameraPermissionLauncher.launch(Manifest.permission.CAMERA)
+            }
+        }
     }
 
     private fun dispatchTakePictureIntent() {
@@ -118,20 +152,20 @@ class DashboardFragment : Fragment() {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
             val file = File(currentPhotoPath)
             val bitmap = BitmapFactory.decodeFile(file.absolutePath)
+            selectedBitmap = bitmap
             binding.image.setImageBitmap(bitmap)
         } else if (requestCode == REQUEST_IMAGE_PICK && resultCode == Activity.RESULT_OK) {
             val selectedImage: Uri? = data?.data
             selectedImage?.let {
                 val bitmap = MediaStore.Images.Media.getBitmap(requireActivity().contentResolver, it)
+                selectedBitmap = bitmap
                 binding.image.setImageBitmap(bitmap)
             }
         }
     }
 
     private fun getBitmapForProcessing(): Bitmap? {
-        binding.image.isDrawingCacheEnabled = true
-        binding.image.buildDrawingCache()
-        return binding.image.drawingCache
+        return selectedBitmap
     }
 
     private fun runModelOnImage(bitmap: Bitmap): String {
@@ -164,5 +198,13 @@ class DashboardFragment : Fragment() {
         } else {
             "Unknown"
         }
+    }
+
+    private fun navigateToResultFragment(bitmap: Bitmap, resultText: String) {
+        val bundle = Bundle().apply {
+            putParcelable("image", bitmap)
+            putString("result", resultText)
+        }
+        findNavController().navigate(R.id.action_navigation_dashboard_to_resultFragment, bundle)
     }
 }

@@ -24,7 +24,10 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.android.trashub.ui.dashboard.DashboardFragment"
         android:label="@string/title_kamera"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard"/>
+        <action
+            android:id="@+id/action_navigation_dashboard_to_resultFragment"
+            app:destination="@+id/resultFragment" />
 
     <fragment
         android:id="@+id/navigation_notifications"
@@ -86,6 +89,12 @@
         android:name="com.android.trashub.ui.home.NewsFragment"
         android:label="@string/informasi_sampah"
         tools:layout="@layout/fragment_news" />
+
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.android.trashub.ui.dashboard.ResultFragment"
+        android:label="@string/hasil_prediksi"
+        tools:layout="@layout/fragment_hasil" />
 
     <fragment
         android:id="@+id/organikFragment"

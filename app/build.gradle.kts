@@ -69,11 +69,14 @@ dependencies {
     implementation("com.google.firebase:firebase-database-ktx:21.0.0")
     implementation("com.google.firebase:firebase-analytics")
 
+    implementation("com.github.yalantis:ucrop:2.2.8")
+
     implementation("com.airbnb.android:lottie:6.4.1")
     implementation("com.google.android.material:material:1.12.0")
     implementation(libs.tensorflow.lite.support)
     implementation(libs.tensorflow.lite.metadata)
     implementation(libs.tensorflow.lite.gpu)
+    implementation("io.coil-kt:coil:2.6.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
