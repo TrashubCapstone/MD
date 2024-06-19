@@ -1,10 +1,30 @@
 {
   "project_info": {
     "project_number": "344882872448",
+    "firebase_url": "https://project-trashub-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "project-trashub",
     "storage_bucket": "project-trashub.appspot.com"
   },
   "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:344882872448:android:6450f8a5aeb9e7273be665",
+        "android_client_info": {
+          "package_name": "com.android.trash"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSni63aoX8yPP-oAlrleazAR0xWV2-v4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
     {
       "client_info": {
         "mobilesdk_app_id": "1:344882872448:android:f0dca6c37b92f4033be665",

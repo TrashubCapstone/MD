@@ -1,6 +1,7 @@
 package com.android.trashub.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,19 +11,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.trashub.R
 import com.android.trashub.adapter.TrashubAdapter
 import com.android.trashub.data.Trashub
-import com.google.firebase.database.*
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ListenerRegistration
 
 class OrganikFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var trashubList: ArrayList<Trashub>
-    private lateinit var dbRef: DatabaseReference
+    private lateinit var db: FirebaseFirestore
+    private var listenerRegistration: ListenerRegistration? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val rootView = inflater.inflate(R.layout.fragment_organik, container, false)
 
         recyclerView = rootView.findViewById(R.id.rvOrganik)
@@ -31,6 +33,7 @@ class OrganikFragment : Fragment() {
 
         trashubList = arrayListOf()
 
+        db = FirebaseFirestore.getInstance()
         getTrashubData()
 
         return rootView
@@ -39,27 +42,33 @@ class OrganikFragment : Fragment() {
     private fun getTrashubData() {
         recyclerView.visibility = View.GONE
 
-        dbRef = FirebaseDatabase.getInstance().getReference("Trashub")
-        dbRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                trashubList.clear()
-                if (snapshot.exists()) {
-                    for (trashubSnap in snapshot.children) {
-                        val trashubData = trashubSnap.getValue(Trashub::class.java)
+        listenerRegistration = db.collection("sampah")
+            .addSnapshotListener { snapshot, e ->
+                if (e != null) {
+                    Log.e("OrganikFragment", "Listen failed.", e)
+                    return@addSnapshotListener
+                }
+
+                if (snapshot != null && !snapshot.isEmpty) {
+                    trashubList.clear()
+                    for (doc in snapshot.documents) {
+                        val trashubData = doc.toObject(Trashub::class.java)
                         if (trashubData != null) {
+                            Log.d("OrganikFragment", "Adding data: $trashubData")
                             trashubList.add(trashubData)
                         }
                     }
                     val tAdapter = TrashubAdapter(trashubList)
                     recyclerView.adapter = tAdapter
-
                     recyclerView.visibility = View.VISIBLE
+                } else {
+                    Log.d("OrganikFragment", "No data found in snapshot")
                 }
             }
+    }
 
-            override fun onCancelled(error: DatabaseError) {
-                // Handle database error
-            }
-        })
+    override fun onDestroyView() {
+        super.onDestroyView()
+        listenerRegistration?.remove()
     }
 }

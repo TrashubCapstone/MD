@@ -68,6 +68,8 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
     implementation("com.google.firebase:firebase-database-ktx:21.0.0")
     implementation("com.google.firebase:firebase-analytics")
+    implementation ("com.google.firebase:firebase-firestore:25.0.0")
+//    implementation ("com.google.firebase:firebase-core:21.1.1")
 
     implementation("com.github.yalantis:ucrop:2.2.8")
 
