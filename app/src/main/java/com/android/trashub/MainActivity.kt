@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         // Update title with user name if passed from HomepageActivity
         val userName = intent.getStringExtra("user_name")
-        val titleTextView: TextView = findViewById(R.id.title)
+        val titleTextView: TextView = findViewById(R.id.title2)
         if (!userName.isNullOrEmpty()) {
             titleTextView.text = "$userName"
         }
