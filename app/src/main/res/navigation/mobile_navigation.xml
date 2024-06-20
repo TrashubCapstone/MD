@@ -8,7 +8,7 @@
         android:id="@+id/navigation_home"
         android:name="com.android.trashub.ui.home.HomeFragment"
         android:label="@string/title_beranda"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_navigation_home_to_jenisFragment"
             app:destination="@+id/jenisFragment" />
@@ -24,10 +24,11 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.android.trashub.ui.dashboard.DashboardFragment"
         android:label="@string/title_kamera"
-        tools:layout="@layout/fragment_dashboard"/>
+        tools:layout="@layout/fragment_dashboard">
         <action
             android:id="@+id/action_navigation_dashboard_to_resultFragment"
             app:destination="@+id/resultFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
@@ -35,20 +36,22 @@
         android:label="@string/title_akun"
         tools:layout="@layout/fragment_notifications" />
 
+    <!-- Subsequent fragments should use a different layout -->
     <fragment
         android:id="@+id/jenisFragment"
         android:name="com.android.trashub.ui.home.JenisFragment"
         android:label="@string/jenis_jenis_sampah"
-        tools:layout="@layout/fragment_jenis"/>
+        tools:layout="@layout/fragment_jenis">
         <action
             android:id="@+id/action_jenisFragment_to_organikFragment"
-            app:destination="@+id/organikFragment"/>
+            app:destination="@+id/organikFragment" />
         <action
             android:id="@+id/action_jenisFragment_to_anorganikFragment"
-            app:destination="@+id/anorganikFragment"/>
+            app:destination="@+id/anorganikFragment" />
         <action
             android:id="@+id/action_jenisFragment_to_b3Fragment"
-            app:destination="@+id/b3Fragment"/>
+            app:destination="@+id/b3Fragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/reduceFragment"
@@ -57,13 +60,13 @@
         tools:layout="@layout/fragment_reduce">
         <action
             android:id="@+id/action_reduceFragment_to_detailReduceFragment"
-            app:destination="@+id/detailReduceFragment"/>
+            app:destination="@+id/detailReduceFragment" />
         <action
             android:id="@+id/action_reduceFragment_to_detailReuseFragment"
-            app:destination="@+id/detailReuseFragment"/>
+            app:destination="@+id/detailReuseFragment" />
         <action
             android:id="@+id/action_reduceFragment_to_detailRecycleFragment"
-            app:destination="@+id/detailRecycleFragment"/>
+            app:destination="@+id/detailRecycleFragment" />
     </fragment>
 
     <fragment
@@ -100,26 +103,58 @@
         android:id="@+id/organikFragment"
         android:name="com.android.trashub.ui.home.OrganikFragment"
         android:label="@string/jenis_jenis_sampah_organik"
-        tools:layout="@layout/fragment_organik" />
+        tools:layout="@layout/fragment_organik">
         <action
             android:id="@+id/action_organikFragment_to_detailOrganikFragment"
-            app:destination="@+id/detailOrganikFragment"/>
+            app:destination="@+id/detailOrganikFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/anorganikFragment"
         android:name="com.android.trashub.ui.home.AnorganikFragment"
         android:label="@string/jenis_jenis_sampah_anorganik"
         tools:layout="@layout/fragment_anorganik" />
+        <action
+            android:id="@+id/action_anorganikFragment_to_detailAnorganikFragment"
+            app:destination="@+id/detailAnorganikFragment" />
 
     <fragment
         android:id="@+id/b3Fragment"
         android:name="com.android.trashub.ui.home.BFragment"
         android:label="@string/jenis_jenis_sampah_b3"
         tools:layout="@layout/fragment_b3" />
+        <action
+            android:id="@+id/action_b3Fragment_to_detailBFragment"
+            app:destination="@+id/detailBFragment" />
 
     <fragment
         android:id="@+id/detailOrganikFragment"
         android:name="com.android.trashub.ui.home.DetailOrganikFragment"
-        android:label="@string/penjelasan_recycle"
-        tools:layout="@layout/fragment_detail_organik" />
+        android:label="Detail Organik"
+        tools:layout="@layout/fragment_detail_jenis">
+        <argument
+            android:name="trashub"
+            app:argType="com.android.trashub.data.Trashub" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailAnorganikFragment"
+        android:name="com.android.trashub.ui.home.DetailAnorganikFragment"
+        android:label="Detail Anorganik"
+        tools:layout="@layout/fragment_detail_jenis">
+        <argument
+            android:name="trashub"
+            app:argType="com.android.trashub.data.Trashub" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailBFragment"
+        android:name="com.android.trashub.ui.home.DetailBFragment"
+        android:label="Detail B3"
+        tools:layout="@layout/fragment_detail_jenis">
+        <argument
+            android:name="trashub"
+            app:argType="com.android.trashub.data.Trashub" />
+    </fragment>
+
 </navigation>

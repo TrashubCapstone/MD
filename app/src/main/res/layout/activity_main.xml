@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -34,21 +33,6 @@
 
         <TextView
             android:id="@+id/title"
-            style="@style/TextContent.HeadlineLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/halo"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.107"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.368" />
-
-        <TextView
-            android:id="@+id/title2"
             style="@style/TextContent.HeadlineSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,10 +41,25 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.094"
+            app:layout_constraintHorizontal_bias="0.085"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.69" />
+            app:layout_constraintVertical_bias="0.631" />
+
+        <TextView
+            android:id="@+id/title2"
+            style="@style/TextContent.HeadlineLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/halo"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.093"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.307" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

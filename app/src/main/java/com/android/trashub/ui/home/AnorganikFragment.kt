@@ -13,6 +13,11 @@ import com.android.trashub.adapter.TrashubAdapter
 import com.android.trashub.data.Trashub
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.widget.ImageView
+import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 
 class AnorganikFragment : Fragment() {
 
@@ -21,7 +26,6 @@ class AnorganikFragment : Fragment() {
     private lateinit var db: FirebaseFirestore
     private var listenerRegistration: ListenerRegistration? = null
 
-    // Number of columns for the grid
     private val numberOfColumns = 2
 
     override fun onCreateView(
@@ -46,7 +50,7 @@ class AnorganikFragment : Fragment() {
         recyclerView.visibility = View.GONE
 
         listenerRegistration = db.collection("sampah")
-            .whereEqualTo("jenis_sampah", "Anorganik") // Filter untuk mengambil data jenis sampah organik saja
+            .whereEqualTo("jenis_sampah", "Anorganik")
             .addSnapshotListener { snapshot, e ->
                 if (e != null) {
                     Log.e("AnorganikFragment", "Listen failed.", e)
@@ -62,7 +66,9 @@ class AnorganikFragment : Fragment() {
                             trashubList.add(trashubData)
                         }
                     }
-                    val tAdapter = TrashubAdapter(trashubList) {}
+                    val tAdapter = TrashubAdapter(trashubList) { trashub ->
+                        navigateToResultFragment(trashub)
+                    }
                     recyclerView.adapter = tAdapter
                     recyclerView.visibility = View.VISIBLE
                 } else {
@@ -70,6 +76,14 @@ class AnorganikFragment : Fragment() {
                 }
             }
     }
+
+    private fun navigateToResultFragment(trashub: Trashub) {
+        val bundle = Bundle().apply {
+            putString("trashubId", trashub.id)
+        }
+        findNavController().navigate(R.id.action_anorganikFragment_to_detailAnorganikFragment, bundle)
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

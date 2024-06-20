@@ -3,6 +3,7 @@ package com.android.trashub.data
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Trashub(
     var createdAt: String = "",
     var id: String = "",
@@ -11,4 +12,4 @@ data class Trashub(
     val imageUrl: String = "",
     val keterangan_sampah: String = "",
     val nama_sampah: String = ""
-)
+) : Parcelable

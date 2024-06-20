@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.trashub.R
@@ -62,7 +63,9 @@ class BFragment : Fragment() {
                             trashubList.add(trashubData)
                         }
                     }
-                    val tAdapter = TrashubAdapter(trashubList) {}
+                    val tAdapter = TrashubAdapter(trashubList) { trashub ->
+                        navigateToResultFragment(trashub)
+                    }
                     recyclerView.adapter = tAdapter
                     recyclerView.visibility = View.VISIBLE
                 } else {
@@ -71,7 +74,13 @@ class BFragment : Fragment() {
             }
     }
 
-    override fun onDestroyView() {
+    private fun navigateToResultFragment(trashub: Trashub) {
+        val bundle = Bundle().apply {
+            putString("trashubId", trashub.id)
+        }
+        findNavController().navigate(R.id.action_b3Fragment_to_detailBFragment, bundle)
+    }
+        override fun onDestroyView() {
         super.onDestroyView()
         listenerRegistration?.remove()
     }

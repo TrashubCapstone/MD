@@ -27,7 +27,6 @@ class HomepageActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
-        supportActionBar?.hide()
 
         val contentList = listOf(
             SliderAdapter.SliderContent(R.drawable.slider01, "Reduce", getString(R.string.message_homepage1), getString(R.string.message_quotes1)),
