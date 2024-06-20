@@ -14,7 +14,7 @@ import com.android.trashub.data.Trashub
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 
-class OrganikFragment : Fragment() {
+class BFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var trashubList: ArrayList<Trashub>
@@ -46,10 +46,10 @@ class OrganikFragment : Fragment() {
         recyclerView.visibility = View.GONE
 
         listenerRegistration = db.collection("sampah")
-            .whereEqualTo("jenis_sampah", "Organik") // Filter untuk mengambil data jenis sampah organik saja
+            .whereEqualTo("jenis_sampah", "B3") // Filter untuk mengambil data jenis sampah organik saja
             .addSnapshotListener { snapshot, e ->
                 if (e != null) {
-                    Log.e("OrganikFragment", "Listen failed.", e)
+                    Log.e("BFragment", "Listen failed.", e)
                     return@addSnapshotListener
                 }
 
@@ -58,7 +58,7 @@ class OrganikFragment : Fragment() {
                     for (doc in snapshot.documents) {
                         val trashubData = doc.toObject(Trashub::class.java)
                         if (trashubData != null) {
-                            Log.d("OrganikFragment", "Adding data: $trashubData")
+                            Log.d("BFragment", "Adding data: $trashubData")
                             trashubList.add(trashubData)
                         }
                     }
@@ -66,7 +66,7 @@ class OrganikFragment : Fragment() {
                     recyclerView.adapter = tAdapter
                     recyclerView.visibility = View.VISIBLE
                 } else {
-                    Log.d("OrganikFragment", "No data found in snapshot")
+                    Log.d("BFragment", "No data found in snapshot")
                 }
             }
     }

@@ -33,11 +33,11 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        // Update title with user name if passed from InputActivity
+        // Update title with user name if passed from HomepageActivity
         val userName = intent.getStringExtra("user_name")
         val titleTextView: TextView = findViewById(R.id.title)
         if (!userName.isNullOrEmpty()) {
-            titleTextView.text = userName
+            titleTextView.text = "$userName"
         }
 
         // Update image if passed from NotificationsFragment

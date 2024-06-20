@@ -21,6 +21,7 @@ import androidx.navigation.fragment.findNavController
 import com.android.trashub.R
 import com.android.trashub.databinding.FragmentDashboardBinding
 import com.android.trashub.ml.Model7
+import com.yalantis.ucrop.UCrop
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.File
@@ -72,11 +73,9 @@ class DashboardFragment : Fragment() {
         }
 
         binding.btnSimpan.setOnClickListener {
-            binding.result.text = "Processing image..."
             val bitmap: Bitmap? = getBitmapForProcessing()
             bitmap?.let {
                 val resultText = runModelOnImage(it)
-                binding.result.text = resultText
                 navigateToResultFragment(it, resultText)
             }
         }
@@ -151,17 +150,29 @@ class DashboardFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
             val file = File(currentPhotoPath)
-            val bitmap = BitmapFactory.decodeFile(file.absolutePath)
-            selectedBitmap = bitmap
-            binding.image.setImageBitmap(bitmap)
+            val photoUri = Uri.fromFile(file)
+            cropImage(photoUri, photoUri) // Cropping the image from camera
         } else if (requestCode == REQUEST_IMAGE_PICK && resultCode == Activity.RESULT_OK) {
             val selectedImage: Uri? = data?.data
             selectedImage?.let {
+                val destinationUri = Uri.fromFile(File(requireContext().cacheDir, "cropped_${SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())}.jpg"))
+                cropImage(it, destinationUri) // Cropping the image from gallery
+            }
+        } else if (requestCode == UCrop.REQUEST_CROP && resultCode == Activity.RESULT_OK) {
+            val resultUri = UCrop.getOutput(data!!)
+            resultUri?.let {
                 val bitmap = MediaStore.Images.Media.getBitmap(requireActivity().contentResolver, it)
                 selectedBitmap = bitmap
                 binding.image.setImageBitmap(bitmap)
             }
         }
+    }
+
+    private fun cropImage(sourceUri: Uri, destinationUri: Uri) {
+        val uCrop = UCrop.of(sourceUri, destinationUri)
+        uCrop.withAspectRatio(1f, 1f)
+        uCrop.withMaxResultSize(224, 224)
+        uCrop.start(requireContext(), this)
     }
 
     private fun getBitmapForProcessing(): Bitmap? {
@@ -207,4 +218,5 @@ class DashboardFragment : Fragment() {
         }
         findNavController().navigate(R.id.action_navigation_dashboard_to_resultFragment, bundle)
     }
+
 }

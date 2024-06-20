@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_gradient_background"
+    android:background="@color/hijau"
     tools:context=".InputActivity">
 
     <com.airbnb.lottie.LottieAnimationView
@@ -29,6 +29,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
         android:text="@string/title_input"
+        android:textColor="@color/text"
         style="@style/TextContent.HeadlineMedium"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,8 +55,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
-            android:inputType="textEmailAddress"
-            android:background="@null"
+            android:inputType="textPersonName"
+            android:textColor="@color/text"
+            android:background="@drawable/green_border"
             tools:alpha="100"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -68,6 +70,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
         android:text="@string/lanjut"
+        android:textColor="@color/white"
         style="@style/TextContent.TitleMedium"
         android:textSize="20sp"
         app:cornerRadius="10dp"
