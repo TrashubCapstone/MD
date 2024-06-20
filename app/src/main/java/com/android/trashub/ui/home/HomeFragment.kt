@@ -24,15 +24,15 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        binding.btnJenis.setOnClickListener {
+        binding.btnJenisContainer.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_home_to_jenisFragment)
         }
 
-        binding.btn3R.setOnClickListener {
+        binding.btn3RContainer.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_home_to_reduceFragment)
         }
 
-        binding.btnInformasi.setOnClickListener {
+        binding.btnInformasiContainer.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_home_to_newsFragment)
         }
 

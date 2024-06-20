@@ -4,12 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.android.trashub.adapter.SliderAdapter
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class HomepageActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_homepage)
@@ -29,7 +29,6 @@ class HomepageActivity : AppCompatActivity() {
         }
         supportActionBar?.hide()
 
-        // Setup ViewPager with the adapter
         val contentList = listOf(
             SliderAdapter.SliderContent(R.drawable.slider01, "Reduce", getString(R.string.message_homepage1), getString(R.string.message_quotes1)),
             SliderAdapter.SliderContent(R.drawable.slider02, "Reuse", getString(R.string.message_homepage2), getString(R.string.message_quotes2)),

@@ -10,62 +10,137 @@
     android:background="@drawable/ic_gradient_background"
     tools:context=".ui.home.JenisFragment">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnOrganik"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="250dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
-        android:alpha="1"
-        android:text="@string/organik"
-        android:textColor="@color/white"
-        style="@style/TextContent.TitleMedium"
-        android:textSize="20sp"
-        app:cornerRadius="10dp"
-        app:backgroundTint="@color/btngreen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+    <!-- Button 1 -->
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnAnorganik"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
-        android:alpha="1"
-        android:text="@string/unorganik"
-        android:textColor="@color/white"
-        style="@style/TextContent.TitleMedium"
-        android:textSize="20sp"
-        app:cornerRadius="10dp"
-        app:backgroundTint="@color/btngreen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnOrganik"/>
+    <!-- Button 2 -->
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnB3"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btnOrganikContainer"
         android:layout_width="0dp"
-        android:layout_height="64dp"
+        android:layout_height="120dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="188dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
-        android:alpha="1"
-        android:text="@string/B3"
-        android:textColor="@color/white"
-        style="@style/TextContent.TitleMedium"
-        android:textSize="20sp"
-        app:cornerRadius="10dp"
-        app:backgroundTint="@color/btngreen"
+        android:background="@drawable/bg_button_radius_yellow"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/avatarOrganik"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/organik"
+            android:src="@drawable/ic_organik"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/btnOrganikText"
+            style="@style/TextContent.TitleMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/organik"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/avatarOrganik"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btnAnorganikContainer"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/bg_button_radius_blue"
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAnorganik"/>
+        app:layout_constraintTop_toBottomOf="@id/btnOrganikContainer">
+
+        <ImageView
+            android:id="@+id/avatarAnorganik"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_anorganik"
+            android:contentDescription="@string/unorganik"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/btnAnorganikText"
+            style="@style/TextContent.TitleMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/unorganik"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/avatarAnorganik"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Button 3 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btnB3Container"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/bg_button_radius_pink"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnAnorganikContainer">
+
+        <ImageView
+            android:id="@+id/avatarB3"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_b3"
+            android:contentDescription="@string/B3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/btnB3Text"
+            style="@style/TextContent.TitleMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/B3"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/avatarB3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"

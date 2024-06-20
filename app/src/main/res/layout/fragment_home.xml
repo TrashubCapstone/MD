@@ -6,59 +6,144 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnJenis"
-        style="@style/TextContent.TitleMedium"
-        android:layout_width="345dp"
-        android:layout_height="95dp"
+    <!-- Button 1 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btnJenisContainer"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="250dp"
         android:layout_marginEnd="32dp"
-        android:alpha="1"
-        android:text="@string/jenis_jenis_sampah"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:backgroundTint="@color/btngreen"
-        app:cornerRadius="10dp"
+        android:background="@drawable/bg_button_radius_blue"
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn3R"
-        android:layout_width="0dp"
-        android:layout_height="95dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
-        android:alpha="1"
-        android:text="@string/_3r"
-        android:textColor="@color/white"
-        style="@style/TextContent.TitleMedium"
-        android:textSize="20sp"
-        app:cornerRadius="10dp"
-        app:backgroundTint="@color/btngreen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnJenis" />
+        <ImageView
+            android:id="@+id/avatarJenis"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="24dp"
+            android:contentDescription="@string/jenis_jenis_sampah"
+            android:src="@drawable/icon_jenis"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnInformasi"
+        <TextView
+            android:id="@+id/btnJenisText"
+            style="@style/TextContent.TitleMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/jenis_jenis_sampah"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginLeft="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@id/avatarJenis"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.493" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Button 2 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btn3RContainer"
         android:layout_width="0dp"
-        android:layout_height="95dp"
+        android:layout_height="120dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
-        android:alpha="1"
-        android:text="@string/informasi_sampah"
-        android:textColor="@color/white"
-        style="@style/TextContent.TitleMedium"
-        android:textSize="20sp"
-        app:cornerRadius="10dp"
-        app:backgroundTint="@color/btngreen"
+        android:background="@drawable/bg_button_radius_yellow"
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn3R" />
+        app:layout_constraintTop_toBottomOf="@id/btnJenisContainer">
+
+        <ImageView
+            android:id="@+id/avatar3R"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="24dp"
+            android:contentDescription="@string/_3r"
+            android:src="@drawable/icon_3r"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/btn3RText"
+            style="@style/TextContent.TitleMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/_3r"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginLeft="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@id/avatar3R"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.493" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Button 3 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btnInformasiContainer"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/bg_button_radius_pink"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn3RContainer">
+
+        <ImageView
+            android:id="@+id/avatarInformasi"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="24dp"
+            android:contentDescription="@string/informasi_sampah"
+            android:src="@drawable/icon_informasi"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/btnInformasiText"
+            style="@style/TextContent.TitleMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/informasi_sampah"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginLeft="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/avatarInformasi"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main Menu"
+        android:textColor="@color/black"
+        style="@style/TextContent.HeadlineSmall"
+        app:layout_constraintBottom_toTopOf="@+id/btnJenisContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.135"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.962" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

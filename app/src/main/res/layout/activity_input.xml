@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -26,17 +27,17 @@
         android:text="@string/title_input"
         android:textColor="@color/text"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView01" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView01"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/nameLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,10 +48,10 @@
             android:id="@+id/my_name_custom"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/green_border"
             android:ems="25"
             android:inputType="textPersonName"
-            android:textColor="@color/text" />
+            android:textColor="@color/text"
+            android:background="@drawable/green_border" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
@@ -62,13 +63,13 @@
         android:text="@string/lanjut"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:backgroundTint="@color/btngreen"
         app:cornerRadius="10dp"
+        app:backgroundTint="@color/btngreen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nameLayout"
         tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="620dp" />
+        tools:layout_editor_absoluteY="620dp"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineHorizontal"

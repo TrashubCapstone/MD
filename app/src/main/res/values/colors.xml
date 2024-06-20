@@ -30,4 +30,8 @@
     <color name="backgroundgreen">#DEFABB</color>
     <color name="hijau">#E0FBE2</color>
     <color name="text">#479861</color>
+    <color name="btnpastelblue">#ADD8E6</color>
+    <color name="btnpastelpink">#FFB6C1</color>
+    <color name="btnpastelyellow">#FFE928</color>
+    <color name="greenpastel">#DEFABB</color>
 </resources>

@@ -1,4 +1,4 @@
-package com.android.trashub
+package com.android.trashub.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.android.trashub.R
 
 class SliderAdapter(private val contentList: List<SliderContent>) : RecyclerView.Adapter<SliderAdapter.SliderViewHolder>() {
 
