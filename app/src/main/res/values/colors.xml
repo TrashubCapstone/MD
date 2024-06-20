@@ -28,4 +28,6 @@
     <color name="red">#FF0000</color>
     <color name="btngreen">#90EE02</color>
     <color name="backgroundgreen">#DEFABB</color>
+    <color name="hijau">#E0FBE2</color>
+    <color name="text">#479861</color>
 </resources>

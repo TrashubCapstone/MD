@@ -105,17 +105,17 @@
             android:id="@+id/action_organikFragment_to_detailOrganikFragment"
             app:destination="@+id/detailOrganikFragment"/>
 
-<!--    <fragment-->
-<!--        android:id="@+id/anorganikFragment"-->
-<!--        android:name="com.android.trashub.ui.home.AnorganikFragment"-->
-<!--        android:label="@string/jenis_jenis_sampah_anorganik"-->
-<!--        tools:layout="@layout/fragment_anorganik" />-->
+    <fragment
+        android:id="@+id/anorganikFragment"
+        android:name="com.android.trashub.ui.home.AnorganikFragment"
+        android:label="@string/jenis_jenis_sampah_anorganik"
+        tools:layout="@layout/fragment_anorganik" />
 
-<!--    <fragment-->
-<!--        android:id="@+id/b3Fragment"-->
-<!--        android:name="com.android.trashub.ui.home.B3Fragment"-->
-<!--        android:label="@string/jenis_jenis_sampah_b3"-->
-<!--        tools:layout="@layout/fragment_b3" />-->
+    <fragment
+        android:id="@+id/b3Fragment"
+        android:name="com.android.trashub.ui.home.BFragment"
+        android:label="@string/jenis_jenis_sampah_b3"
+        tools:layout="@layout/fragment_b3" />
 
     <fragment
         android:id="@+id/detailOrganikFragment"

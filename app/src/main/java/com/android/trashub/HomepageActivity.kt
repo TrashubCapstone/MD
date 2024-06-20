@@ -12,9 +12,15 @@ class HomepageActivity : AppCompatActivity() {
 
         val btnGeser: MaterialButton = findViewById(R.id.btnGeser)
 
+        // Retrieve the user name passed from InputActivity
+        val userName = intent.getStringExtra("user_name")
+
         btnGeser.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java).apply {
+                putExtra("user_name", userName)
+            }
             startActivity(intent)
         }
+        supportActionBar?.hide()
     }
 }
