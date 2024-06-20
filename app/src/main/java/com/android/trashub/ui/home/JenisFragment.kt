@@ -21,15 +21,15 @@ class JenisFragment : Fragment() {
         _binding = FragmentJenisBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        binding.btnOrganik.setOnClickListener {
+        binding.btnOrganikContainer.setOnClickListener {
             findNavController().navigate(R.id.action_jenisFragment_to_organikFragment)
         }
 
-        binding.btnAnorganik.setOnClickListener {
+        binding.btnAnorganikContainer.setOnClickListener {
             findNavController().navigate(R.id.action_jenisFragment_to_anorganikFragment)
         }
 
-        binding.btnB3.setOnClickListener {
+        binding.btnB3Container.setOnClickListener {
             findNavController().navigate(R.id.action_jenisFragment_to_b3Fragment)
         }
 

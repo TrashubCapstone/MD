@@ -3,8 +3,13 @@
     <string name="title_beranda">Beranda</string>
     <string name="title_kamera">Kamera</string>
     <string name="title_akun">Akun</string>
-    <string name="title_input">Siapa Namamu?</string>
-    <string name="message_homepage1">"Sampah dapat mencemari lingkungan jika tidak dikelola dengan baik. Daur ulang dan pengelolaan yang efisien sangat penting untuk menjaga keberlanjutan lingkungan."</string>
+    <string name="title_input">Hallo, Nama Kamu Siapa?</string>
+    <string name="message_homepage1">"Mengurangi jumlah sampah berarti tidak menggunakan barang-barang yang tidak diperlukan dan tidak membeli barang-barang yang menghasilkan banyak sampah."</string>
+    <string name="message_homepage2">"Memakai kembali barang-barang yang masih bagus dan masih bisa dipakai sebelum membuangnya."</string>
+    <string name="message_homepage3">"Mendaur ulang barang-barang bekas menjadi produk baru yang bisa dipakai lagi."</string>
+    <string name="message_quotes1">"\"Mari kita bantu bumi mengurangi sampah! Bawa botol minummu sendiri ke sekolah"\"</string>
+    <string name="message_quotes2">"\"Gunakan kembali kotak sepatu lamamu untuk menyimpan mainan. Ayo, kita buat sesuatu yang baru!"\"</string>
+    <string name="message_quotes3">"\"Pisahkan sampahmu! Plastik, kertas, dan logam harus masuk ke tempat yang tepat agar bisa didaur ulang"\"</string>
     <string name="masuk">Masuk</string>
     <string name="lanjut">Lanjut</string>
     <string name="_3r">3R</string>
