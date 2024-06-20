@@ -1,17 +1,13 @@
 package com.android.trashub.adapter
 
-import android.content.Intent
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
 import com.android.trashub.R
 import com.android.trashub.data.Trashub
-import com.android.trashub.ui.dashboard.ResultFragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
@@ -26,9 +22,11 @@ class TrashubAdapter(private val trashubList: ArrayList<Trashub>, private val on
         val currentItem = trashubList[position]
 
         holder.namaSampah.text = currentItem.nama_sampah
-        holder.itemView.setOnClickListener { onItemClicked(currentItem) }
+        holder.itemView.setOnClickListener {
+            onItemClicked(currentItem)
+        }
 
-        Glide.with(holder.itemView.getContext())
+        Glide.with(holder.itemView.context)
             .load(currentItem.imageUrl)
             .apply(RequestOptions.circleCropTransform())
             .into(holder.imageView)

@@ -41,9 +41,7 @@ class DashboardFragment : Fragment() {
     private lateinit var currentPhotoPath: String
     private var selectedBitmap: Bitmap? = null
 
-    // Daftar label kelas sesuai dengan keluaran model
-    // Harus urut sama di tflite
-    private val labels = arrayOf("cardboard", "clothes", "electronics", "food waste", "glass", "leaf waste", "metal", "paper", "plastic", "shoes", "trash", "wood waste")
+    private val labels = arrayOf("Kardus", "Baju", "Elektronik", "Sampah Makanan", "Gelas", "Sampah Daun", "Logam", "Kertas", "Plastik", "Sepatu", "Sampah", "Sampah Kayu")
 
     private val requestCameraPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
         if (isGranted) {
@@ -75,8 +73,8 @@ class DashboardFragment : Fragment() {
         binding.btnSimpan.setOnClickListener {
             val bitmap: Bitmap? = getBitmapForProcessing()
             bitmap?.let {
-                val resultText = runModelOnImage(it)
-                navigateToResultFragment(it, resultText)
+                val (resultText, resultIndex) = runModelOnImage(it)
+                navigateToResultFragment(it, resultText, resultIndex)
             }
         }
 
@@ -97,16 +95,12 @@ class DashboardFragment : Fragment() {
     private fun checkCameraPermissionAndOpenCamera() {
         when {
             ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED -> {
-                // You can use the API that requires the permission.
                 dispatchTakePictureIntent()
             }
             shouldShowRequestPermissionRationale(Manifest.permission.CAMERA) -> {
-                // In an educational UI, explain to the user why your app requires this permission for a specific feature to behave as expected.
-                // Request the permission again if the user agrees.
                 requestCameraPermissionLauncher.launch(Manifest.permission.CAMERA)
             }
             else -> {
-                // You can directly ask for the permission.
                 requestCameraPermissionLauncher.launch(Manifest.permission.CAMERA)
             }
         }
@@ -179,7 +173,7 @@ class DashboardFragment : Fragment() {
         return selectedBitmap
     }
 
-    private fun runModelOnImage(bitmap: Bitmap): String {
+    private fun runModelOnImage(bitmap: Bitmap): Pair<String, Int> {
         val resizedBitmap = Bitmap.createScaledBitmap(bitmap, 224, 224, true)
         val byteBuffer = ByteBuffer.allocateDirect(4 * 224 * 224 * 3)
         byteBuffer.order(ByteOrder.nativeOrder())
@@ -193,7 +187,7 @@ class DashboardFragment : Fragment() {
             }
         }
 
-        val model = Model7.newInstance(requireContext()) // Menggunakan model yang baru (Model7)
+        val model = Model7.newInstance(requireContext())
         val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 224, 224, 3), DataType.FLOAT32)
         inputFeature0.loadBuffer(byteBuffer)
 
@@ -205,18 +199,18 @@ class DashboardFragment : Fragment() {
         val maxIndex = probabilities.indices.maxByOrNull { probabilities[it] } ?: -1
 
         return if (maxIndex != -1) {
-            labels[maxIndex]
+            Pair(labels[maxIndex], maxIndex)
         } else {
-            "Unknown"
+            Pair("Unknown", -1)
         }
     }
 
-    private fun navigateToResultFragment(bitmap: Bitmap, resultText: String) {
+    private fun navigateToResultFragment(bitmap: Bitmap, resultText: String, resultIndex: Int) {
         val bundle = Bundle().apply {
             putParcelable("image", bitmap)
             putString("result", resultText)
+            putInt("resultIndex", resultIndex)
         }
         findNavController().navigate(R.id.action_navigation_dashboard_to_resultFragment, bundle)
     }
-
 }

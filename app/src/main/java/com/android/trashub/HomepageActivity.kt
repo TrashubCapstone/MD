@@ -21,5 +21,6 @@ class HomepageActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
+        supportActionBar?.hide()
     }
 }

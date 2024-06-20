@@ -22,6 +22,8 @@ class InputActivity : AppCompatActivity() {
         // Initially disable the button
         btnLanjut.isEnabled = false
 
+        supportActionBar?.hide()
+
         // Add a TextWatcher to the EditText
         editTextName?.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
