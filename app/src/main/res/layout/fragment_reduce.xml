@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="?attr/actionBarSize"
+    android:background="@drawable/ic_gradient_background"
+    tools:context=".ui.home.JenisFragment">
+
+    <!-- Button 1 - Reduce -->
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnReduce"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="32dp"
+        android:alpha="1"
+        android:text="@string/reduce"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:backgroundTint="@color/btnpastelpink"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnReuse"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="32dp"
+        android:alpha="1"
+        android:text="@string/reuse"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:backgroundTint="@color/btnpastelblue"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnReduce" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRecycle"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="32dp"
+        android:alpha="1"
+        android:text="@string/recycle"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:backgroundTint="@color/btnpastelyellow"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnReuse" />
+
+    <!-- Button 2 - Reuse -->
+
+    <ImageView
+        android:id="@+id/avatarReduce"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="264dp"
+        android:contentDescription="@string/reduce"
+        android:src="@drawable/ic_avatar_reduce"
+        app:layout_constraintBottom_toBottomOf="@+id/btnReduce"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnReduce"
+        app:layout_constraintVertical_bias="0.546" />
+
+    <!-- Button 3 - Recycle -->
+
+    <ImageView
+        android:id="@+id/avatarReuse"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="264dp"
+        android:contentDescription="@string/reuse"
+        android:src="@drawable/ic_avatar_reuse"
+        app:layout_constraintBottom_toBottomOf="@+id/btnReuse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnReuse"
+        app:layout_constraintVertical_bias="0.515" />
+
+    <!-- Bottom Navigation -->
+    <ImageView
+        android:id="@+id/avatarRecycle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="264dp"
+        android:contentDescription="@string/recycle"
+        android:src="@drawable/icon_3r"
+        app:layout_constraintBottom_toBottomOf="@+id/btnRecycle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnRecycle"
+        app:layout_constraintVertical_bias="0.515" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

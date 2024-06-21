@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.dashboard.ResultFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="60dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_place_holder" />
+
+        <TextView
+            android:id="@+id/result"
+            style="@style/TextContent.TitleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/hasil"
+            android:textColor="@color/text"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image" />
+
+        <TextView
+            android:id="@+id/resultJenis"
+            style="@style/TextContent.TitleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/jenis"
+            android:textColor="@color/text"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:layout_marginLeft="20px"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/result" />
+
+        <TextView
+            android:id="@+id/resultKategori"
+            style="@style/TextContent.TitleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/kategori"
+            android:textColor="@color/text"
+            android:textSize="18sp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/guideline_vertical"
+            app:layout_constraintTop_toBottomOf="@id/result" />
+
+        <TextView
+            android:id="@+id/resultKeterangan"
+            style="@style/TextContent.TitleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/keterangan"
+            android:textColor="@color/text"
+            android:textSize="18sp"
+            android:layout_marginLeft="20px"
+            android:layout_marginBottom="100dp"
+            android:justificationMode="inter_word"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/resultJenis" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="64dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_begin="206dp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
